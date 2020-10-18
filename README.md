@@ -22,12 +22,12 @@ Python 3.7 or above
 
 - For a one way Dicom/Nifti to obj mesh, main.py can be used.
     - An example usage of main.py: 
-> python3 main.py "d" "samples" 300 "abdomen_mesh"
+> python3 main.py d path/to/folder/samples 300 path/to/output/abdomen_mesh.obj
 
    - "d", first argument being the option used for conversion. {"d":dicom to obj, "n":nifti to obj, "num"numpy to obj}
-   - "samples", input directory of the Dicom files. Please note that the script can only take input from a fixed directory according           to its conversion option at the moment. {"d": imgs/dicom/(sub dir name), "n": imgs/nifti/(.nii file name), "num": numpy/(.npy             filename)}
-   - 300, third argument being the Housfield used for the thresholding in marching cube algorithm. In this example, 300 is used for             bones. For the sample Nifti file please use 30 or above as it has already been segmented.
-   - "abdomen_mesh", the fourth argument. Once the mesh has successfully generated, it will be saved in output/OBJs with the given             name.
+   - path/to/folder/samples, input directory of the Dicom files. Should be relative to the directory main.py is in. do not include slash at the end.
+    300, third argument being the Housfield used for the thresholding in marching cube algorithm. In this example, 300 is used for             bones. For the sample Nifti file please use 30 or above as it has already been segmented.
+   - path/to/output/abdomen_mesh.obj. Path and filename of output. Should be relative. include .obj
 
 ## OBJ conversion to GLTF/GLB
 https://github.com/AnalyticalGraphicsInc/obj2gltf
