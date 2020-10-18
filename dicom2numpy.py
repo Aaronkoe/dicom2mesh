@@ -60,17 +60,6 @@ def resample(dataPath=fileHandler.dicomPath + slash + "samples", new_spacing=[1,
   scan = load_scan(dataPath)
   image = get_pixels_hu(scan)
   print ("Shape before resampling\t", image.shape)
-  #TODO: add timer
-  start = time.clock()
-  # Determine current pixel spacing
-  #try:
-    #spacing = map(float, ([scan[0].SliceThickness] + [scan[0].PixelSpacing[0], scan[0].PixelSpacing[1]]))
-    #spacing = np.array(list(spacing))
-  #except:
-    #print(len(scan[0].PixelSpacing))
-    #print ("Pixel Spacing (row, col): (%f, %f) " % (scan[0].PixelSpacing[0], scan[0].PixelSpacing[1]))
-    #print("something went sooooooooooooooooooooooooooooo wrong")
-    #exit()
   try:
       print("slicethickness: {0}, pixelspacing[0]: {1}, pixelspacing[1] {2}".format(scan[0].SliceThickness, scan[0].PixelSpacing[0], scan[0].PixelSpacing[1]))
       spacing = map(float, ([scan[0].SliceThickness] + [scan[0].PixelSpacing[0], scan[0].PixelSpacing[1]]))
@@ -87,7 +76,6 @@ def resample(dataPath=fileHandler.dicomPath + slash + "samples", new_spacing=[1,
   new_spacing = spacing / real_resize_factor
   
   image = scipy.ndimage.interpolation.zoom(image, real_resize_factor)
-  print ("Resample done in:  " + str(time.clock()-start))
   print ("Shape after resampling\t", image.shape)
   
   return image, new_spacing
