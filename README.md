@@ -27,7 +27,7 @@ Python 3.7 or above
    - "d", first argument being the option used for conversion. {"d":dicom to obj, "n":nifti to obj, "num"numpy to obj}
    - path/to/folder/samples, input directory of the Dicom files. Should be relative to the directory main.py is in. do not include slash at the end.
     300, third argument being the Housfield used for the thresholding in marching cube algorithm. In this example, 300 is used for             bones. For the sample Nifti file please use 30 or above as it has already been segmented.
-   - path/to/output/abdomen_mesh.obj. Path and filename of output. Should be relative. include .obj
+   - path/to/output/abdomen_mesh.obj. Path and filename of output. Should be relative. include .obj.
 
 ## OBJ conversion to GLTF/GLB
 https://github.com/AnalyticalGraphicsInc/obj2gltf

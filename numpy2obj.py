@@ -29,7 +29,7 @@ slash = fileHandler.slash
 cwd = os.getcwd() + slash
 
 imgPath = cwd + "imgs" + slash
-outputPath = cwd + "outputs" + slash
+outputPath = "./"
 numpyPath = cwd + "numpys" + slash
 
 
@@ -76,7 +76,10 @@ def makeObj(fPath, thisThreshold, objOutput):
   #newObj = open(outputPath + 'OBJs/%s.obj' % objOutput, 'w') 
   ###### CHANGED
   if not os.path.exists(os.path.dirname(outputPath + objOutput)):
-    os.makedirs(os.path.dirname(outputPath + objOutput))
+    try:
+      os.makedirs(os.path.dirname(outputPath + objOutput))
+    except:
+      print("Failed to make the directory, trying to output obj anyway")
   newObj = open(outputPath + objOutput, 'w')
   ###### CHANGED
   for item in v:
