@@ -1,5 +1,4 @@
 #OBJ2GLTF >>>>> https://github.com/AnalyticalGraphicsInc/obj2gltf, https://github.com/mrdoob/three.js
-import nifti2numpy
 import dicom2numpy
 import numpy2obj
 import fileHandler
